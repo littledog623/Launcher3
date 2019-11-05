@@ -9,6 +9,12 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        google()
+    }
+}
+
 final String ANDROID_TOP = "${rootDir}/../../.."
 final String FRAMEWORK_PREBUILTS_DIR = "${ANDROID_TOP}/prebuilts/framework_intermediates/"
 
@@ -152,6 +158,7 @@ dependencies {
     implementation "androidx.preference:preference:${ANDROID_X_VERSION}"
     implementation project(':IconLoader')
     implementation fileTree(dir: "${FRAMEWORK_PREBUILTS_DIR}/libs", include: 'launcher_protos.jar')
+    implementation "${PROTOBUF_DEPENDENCY}"
 
     // Recents lib dependency
     withQuickstepImplementation fileTree(dir: "${FRAMEWORK_PREBUILTS_DIR}/quickstep/libs", include: 'sysui_shared.jar')
